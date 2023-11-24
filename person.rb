@@ -1,7 +1,7 @@
 require_relative 'nameable'
 
 class Person < Nameable
-  attr_reader :rentals
+  attr_reader :rentals, :name
 
   def initialize(id, name)
     super()
@@ -12,9 +12,5 @@ class Person < Nameable
 
   def add_rental(rental)
     @rentals << rental
-  end
-
-  def name
-    @name
   end
 end
