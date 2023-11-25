@@ -1,4 +1,4 @@
-# main.rb (or any testing file)
+# main.rb
 
 # Require necessary files
 require_relative 'classroom'
@@ -30,12 +30,9 @@ puts "Book Author: #{book.author}"
 person = Person.new(3, 'Bob')
 puts "Person Name: #{person.name}"
 
-# Create a Rental
+# Create a Rental through Book's add_rental method
 rental_date = Time.now
-rental = Rental.new(book, person, rental_date)
-puts "Rental Date: #{rental.date}"
-puts "Rented Book Title: #{rental.book.title}"
-puts "Renter's Name: #{rental.person.name}"
+book.add_rental(person, rental_date)
 
 # Access associated data
 puts "\nAssociations:"
