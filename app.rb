@@ -133,9 +133,9 @@ class SchoolLibraryApp
     end
   end
 
-  def main
+  def main(display_menu_options)
     loop do
-      display_menu_options
+      display_menu_options.call
       handle_user_input
     end
   end
