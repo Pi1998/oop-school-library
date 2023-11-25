@@ -15,9 +15,9 @@ class Person < Nameable
     if book.is_a?(Book)
       rental = Rental.new(date, book, self)
       @rentals << rental
-      book.add_rental(self, date) 
+      book.add_rental(self, date)
     else
-      puts "Invalid book. Rental not created."
+      puts 'Invalid book. Rental not created.'
     end
   end
 
