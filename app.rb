@@ -5,6 +5,7 @@ require_relative 'rental'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
+require 'securerandom'
 
 class SchoolLibraryApp
   attr_accessor :classrooms, :books, :people, :rentals
@@ -40,14 +41,16 @@ class SchoolLibraryApp
     puts "Name: "
     name = gets.chomp
 
+    id = SecureRandom.random_number(1000) + 1
+
     if type == 1
       puts "Has parent permission? [Y/N]: "
       permission = gets.chomp.downcase == 'y'
-      person = Student.new(@people.length + 1, age, nil, name: name, parent_permission: permission)
+      person = Student.new(id, age, nil, name: name, parent_permission: permission)
     elsif type == 2
       puts "Specialization: "
       specialization = gets.chomp
-      person = Teacher.new(@people.length + 1, age, specialization, name: name)
+      person = Teacher.new(id, age, specialization, name: name)
     else
       puts "Invalid option."
       return
