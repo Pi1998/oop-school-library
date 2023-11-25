@@ -1,15 +1,16 @@
-require './nameable'
+require_relative 'nameable'
 
 class Person < Nameable
-  attr_accessor :id, :name
+  attr_accessor :rentals, :name, :age
 
   def initialize(id, name)
     super()
     @id = id
     @name = name
+    @rentals = [] # To store rentals
   end
 
-  def correct_name
-    @name
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 end
